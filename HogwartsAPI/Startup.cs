@@ -1,6 +1,8 @@
 using HogwartsAPI.Services;
+using HogwartsInfrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,6 +23,9 @@ namespace HogwartsAPI
         {
             services.AddControllers();
             services.InitializerSwagger();
+
+            services.AddDbContext<HogwartsContext>(options =>
+              options.UseSqlServer(Configuration.GetConnectionString("HogwartsConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
