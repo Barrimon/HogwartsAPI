@@ -1,11 +1,16 @@
 using HogwartsAPI.Services;
+using HogwartsCore.Models;
+using HogwartsCore.Services;
 using HogwartsInfrastructure.Data;
+using HogwartsInfrastructure.Data.Seeder;
+using HogwartsInfrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 
 namespace HogwartsAPI
 {
@@ -21,19 +26,31 @@ namespace HogwartsAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
             services.AddControllers();
             services.InitializerSwagger();
 
             services.AddDbContext<HogwartsContext>(options =>
-              options.UseSqlServer(Configuration.GetConnectionString("HogwartsConnectionString")));
+              options.UseSqlServer(Configuration.GetConnectionString("HogwartsConnectionString"), opt =>
+              {
+                  opt.MigrationsAssembly(migrationAssembly);
+              }));
+
+            services.Configure<PathData>(Configuration.GetSection("PathData"));
+
+            //IoC
+            services.InitializerInfrastructure();
+            //services.InitializerCore();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ISeeder seeder)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seeder.SeedPopulate().GetAwaiter().GetResult();
             }
 
             app.UseHttpsRedirection();

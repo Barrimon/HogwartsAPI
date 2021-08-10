@@ -1,0 +1,20 @@
+{
+  "Fraternity": [
+    {
+      "EntityCode": "117b4872-f982-41d3-af9e-3d5d0916386b",
+      "Name": "Gryffindor"
+    },
+    {
+      "EntityCode": "a7f893b8-21ab-4213-bd42-f1f94edde7de",
+      "Name": "Hufflepuff"
+    },
+    {
+      "EntityCode": "4ef44e17-ee01-4f4c-a312-3a2ea0fd0b16",
+      "Name": "Ravenclaw"
+    },
+    {
+      "EntityCode": "905455c3-abbe-40f3-ad24-208b7e7b4d64",
+      "Name": "Slytherin"
+    }
+  ]
+}
