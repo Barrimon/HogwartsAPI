@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HogwartsAPI", "HogwartsAPI\HogwartsAPI.csproj", "{28E8134E-D878-48E8-AC3C-E6BB338392A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HogwartsCore", "HogwartsCore\HogwartsCore.csproj", "{B8838CCA-9385-4C7B-8483-328D32D38829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HogwartsInfrastructure", "HogwartsInfrastructure\HogwartsInfrastructure.csproj", "{DEF402DA-BB7A-4AF4-ACA5-C85C45BC0C23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28E8134E-D878-48E8-AC3C-E6BB338392A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E8134E-D878-48E8-AC3C-E6BB338392A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E8134E-D878-48E8-AC3C-E6BB338392A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E8134E-D878-48E8-AC3C-E6BB338392A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8838CCA-9385-4C7B-8483-328D32D38829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8838CCA-9385-4C7B-8483-328D32D38829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8838CCA-9385-4C7B-8483-328D32D38829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8838CCA-9385-4C7B-8483-328D32D38829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEF402DA-BB7A-4AF4-ACA5-C85C45BC0C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF402DA-BB7A-4AF4-ACA5-C85C45BC0C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF402DA-BB7A-4AF4-ACA5-C85C45BC0C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF402DA-BB7A-4AF4-ACA5-C85C45BC0C23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {770A4C52-6979-48FC-AFCE-A487594FD3F2}
+	EndGlobalSection
+EndGlobal
