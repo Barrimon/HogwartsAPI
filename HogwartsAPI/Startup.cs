@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
+using Newtonsoft.Json;
 
 namespace HogwartsAPI
 {
@@ -43,6 +44,9 @@ namespace HogwartsAPI
             //IoC
             services.InitializerInfrastructure();
             services.InitializerCore();
+
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+             .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

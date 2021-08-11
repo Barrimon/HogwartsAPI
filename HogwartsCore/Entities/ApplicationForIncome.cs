@@ -17,10 +17,10 @@ namespace HogwartsCore.Entities
         [RegularExpression("^[0-9]*$", ErrorMessage = "{0} must be numeric")]
         public int Age { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public Guid EntityCodeFraternity { get; set; }
-        [ForeignKey(nameof(EntityCodeFraternity))]
-        public virtual Fraternity Fk_Fraternity { get; set; }
+        //[Required]
+        //[MaxLength(50)]
+        //public Guid EntityCodeFraternity { get; set; }
+        //[ForeignKey(nameof(EntityCodeFraternity))]
+        //public virtual Fraternity Fk_Fraternity { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace HogwartsCore.Services
 
         public async Task<IEnumerable<ApplicationForIncomeModel>> GetAll()
         {
-            var resul = (IEnumerable<ApplicationForIncomeModel>)(await repositoryApplicationForIncome.GetAllAsync()).ToList();
+            var resul = (await repositoryApplicationForIncome.GetAllAsync()).Select(x => (ApplicationForIncomeModel)x).ToList();
             return resul;
         }
 
