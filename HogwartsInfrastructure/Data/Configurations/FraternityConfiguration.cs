@@ -11,7 +11,7 @@ namespace HogwartsInfrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Fraternity> builder)
         {
-            builder.ToTable("Master_FraternityConfiguration");
+            builder.ToTable("Master_Fraternity");
             builder.HasKey(e => e.EntityCode);
         }
     }
