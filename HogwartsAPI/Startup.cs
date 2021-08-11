@@ -1,4 +1,5 @@
 using HogwartsAPI.Services;
+using HogwartsCore.Extensions;
 using HogwartsCore.Models;
 using HogwartsCore.Services;
 using HogwartsInfrastructure.Data;
@@ -41,7 +42,7 @@ namespace HogwartsAPI
 
             //IoC
             services.InitializerInfrastructure();
-            //services.InitializerCore();
+            services.InitializerCore();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

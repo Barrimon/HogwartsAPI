@@ -10,7 +10,7 @@ namespace HogwartsCore.Repositories
         Task<TEntity> CreateAsync(TEntity entity);
         Task<bool> DeleteAsync(TEntity entity);
         Task<IQueryable<TEntity>> GetAllAsync();
-        Task<TEntity> GetByCodeAsync(string code);
+        Task<TEntity> GetByCodeAsync(Guid code);
         Task<IQueryable<TEntity>> QueryableWithWhereConditionAsync(Expression<Func<TEntity, bool>> predicate);
         Task<bool> UpdateAsync(TEntity entity);
     }

@@ -48,7 +48,7 @@ namespace HogwartsInfrastructure.Repositories
             return result;
         }
 
-        public async Task<TEntity> GetByCodeAsync(string code) => await db.Set<TEntity>().FindAsync(code);
+        public async Task<TEntity> GetByCodeAsync(Guid code) => await db.Set<TEntity>().FindAsync(code);
 
         public async Task<IQueryable<TEntity>> GetAllAsync() => await Task.FromResult(db.Set<TEntity>().AsQueryable());
 
