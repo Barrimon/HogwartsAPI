@@ -1,10 +1,11 @@
 ﻿using HogwartsCore.Entities;
+using HogwartsCore.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace HogwartsCore.Services.Model
 {
-    public class ApplicationForIncomeModel : IdentifierEntity
+    public class ApplicationForIncomeModel : IdentifierEntityModel
     {
         [MaxLength(20, ErrorMessage = "{0} allow {1} characters as maximum")]
         public string Name { get; set; }
@@ -17,15 +18,17 @@ namespace HogwartsCore.Services.Model
         [RegularExpression("^[0-9]*$", ErrorMessage = "{0} must be numeric")]
         public int Age { get; set; }
 
-        public Guid FraternityEntityCode { get; set; }
+        [Required(ErrorMessage ="{0} is Required")]
+        [MaxLength(50, ErrorMessage = "{0} allow {1} characters as maximum")]
+        public string FraternityEntityCode { get; set; }
 
 
 
         public static explicit operator ApplicationForIncomeModel(ApplicationForIncome entity) => new ApplicationForIncomeModel
         {
-            EntityCode = entity.EntityCode,
+            EntityCode = entity.EntityCode.ToString(),
             Age = entity.Age,
-            FraternityEntityCode = entity.FraternityEntityCode,
+            FraternityEntityCode = entity.EntityCodeFraternity.ToString(),
             Identification = entity.Identification,
             LastName = entity.LastName,
             Name = entity.Name
@@ -34,9 +37,9 @@ namespace HogwartsCore.Services.Model
 
         public static explicit operator ApplicationForIncome(ApplicationForIncomeModel model) => new ApplicationForIncome
         {
-            EntityCode = model.EntityCode,
+            EntityCode = Guid.Parse(model.EntityCode),
             Age = model.Age,
-            FraternityEntityCode = model.FraternityEntityCode,
+            EntityCodeFraternity = Guid.Parse(model.FraternityEntityCode),
             Identification = model.Identification,
             LastName = model.LastName,
             Name = model.Name

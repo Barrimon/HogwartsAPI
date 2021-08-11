@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HogwartsAPI.Migrations
 {
-    public partial class Initialize : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Master_FraternityConfiguration",
+                name: "Master_Fraternity",
                 columns: table => new
                 {
                     EntityCode = table.Column<Guid>(nullable: false),
@@ -16,7 +16,7 @@ namespace HogwartsAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Master_FraternityConfiguration", x => x.EntityCode);
+                    table.PrimaryKey("PK_Master_Fraternity", x => x.EntityCode);
                 });
 
             migrationBuilder.CreateTable(
@@ -26,19 +26,19 @@ namespace HogwartsAPI.Migrations
                     EntityCode = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(maxLength: 20, nullable: true),
                     LastName = table.Column<string>(maxLength: 20, nullable: true),
-                    Identification = table.Column<int>(maxLength: 10, nullable: false),
-                    Age = table.Column<int>(maxLength: 2, nullable: false),
-                    EntityCodeFraternity = table.Column<Guid>(maxLength: 50, nullable: false)
+                    Identification = table.Column<int>(nullable: false),
+                    Age = table.Column<int>(nullable: false),
+                    EntityCodeFraternity = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Master_ApplicationForIncome", x => x.EntityCode);
                     table.ForeignKey(
-                        name: "FK_Master_ApplicationForIncome_Master_FraternityConfiguration_EntityCodeFraternity",
+                        name: "FK_Master_ApplicationForIncome_Master_Fraternity_EntityCodeFraternity",
                         column: x => x.EntityCodeFraternity,
-                        principalTable: "Master_FraternityConfiguration",
+                        principalTable: "Master_Fraternity",
                         principalColumn: "EntityCode",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -53,7 +53,7 @@ namespace HogwartsAPI.Migrations
                 name: "Master_ApplicationForIncome");
 
             migrationBuilder.DropTable(
-                name: "Master_FraternityConfiguration");
+                name: "Master_Fraternity");
         }
     }
 }

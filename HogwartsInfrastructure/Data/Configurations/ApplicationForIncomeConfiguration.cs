@@ -12,7 +12,12 @@ namespace HogwartsInfrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<ApplicationForIncome> builder)
         {
             builder.ToTable("Master_ApplicationForIncome");
-            builder.HasKey(e => e.EntityCode);
+            builder.HasKey(e => new { e.EntityCode});
+
+            builder.HasOne(d => d.FK_Fraternity)
+                .WithMany(p => p.FK_ApplicationForIncome)
+                .HasForeignKey(d => d.EntityCodeFraternity)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace HogwartsAPI.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("FraternityEntityCode")
+                    b.Property<Guid>("EntityCodeFraternity")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Identification")
@@ -44,8 +44,7 @@ namespace HogwartsAPI.Migrations
 
                     b.HasKey("EntityCode");
 
-                    b.HasIndex("FraternityEntityCode")
-                        .IsUnique();
+                    b.HasIndex("EntityCodeFraternity");
 
                     b.ToTable("Master_ApplicationForIncome");
                 });
@@ -67,9 +66,8 @@ namespace HogwartsAPI.Migrations
             modelBuilder.Entity("HogwartsCore.Entities.ApplicationForIncome", b =>
                 {
                     b.HasOne("HogwartsCore.Entities.Fraternity", "FK_Fraternity")
-                        .WithOne("FK_ApplicationForIncome")
-                        .HasForeignKey("HogwartsCore.Entities.ApplicationForIncome", "FraternityEntityCode")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithMany("FK_ApplicationForIncome")
+                        .HasForeignKey("EntityCodeFraternity")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

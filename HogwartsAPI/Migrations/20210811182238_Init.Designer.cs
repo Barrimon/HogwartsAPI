@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HogwartsAPI.Migrations
 {
     [DbContext(typeof(HogwartsContext))]
-    [Migration("20210811042059_FixRelationTablesV2")]
-    partial class FixRelationTablesV2
+    [Migration("20210811182238_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,12 +28,13 @@ namespace HogwartsAPI.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Age")
-                        .HasColumnType("int")
-                        .HasMaxLength(2);
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("EntityCodeFraternity")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Identification")
-                        .HasColumnType("int")
-                        .HasMaxLength(10);
+                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(20)")
@@ -44,6 +45,8 @@ namespace HogwartsAPI.Migrations
                         .HasMaxLength(20);
 
                     b.HasKey("EntityCode");
+
+                    b.HasIndex("EntityCodeFraternity");
 
                     b.ToTable("Master_ApplicationForIncome");
                 });
@@ -60,6 +63,14 @@ namespace HogwartsAPI.Migrations
                     b.HasKey("EntityCode");
 
                     b.ToTable("Master_Fraternity");
+                });
+
+            modelBuilder.Entity("HogwartsCore.Entities.ApplicationForIncome", b =>
+                {
+                    b.HasOne("HogwartsCore.Entities.Fraternity", "FK_Fraternity")
+                        .WithMany("FK_ApplicationForIncome")
+                        .HasForeignKey("EntityCodeFraternity")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
