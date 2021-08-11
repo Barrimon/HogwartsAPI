@@ -1,6 +1,7 @@
 ﻿using HogwartsCore.Services.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace HogwartsCore.Entities
@@ -9,11 +10,7 @@ namespace HogwartsCore.Entities
     {
         public string Name { get; set; }
 
-        public ICollection<ApplicationForIncome> FK_ApplicationForIncome { get; set; }
 
-        public static explicit operator Fraternity(ApplicationForIncomeModel v)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual ApplicationForIncome FK_ApplicationForIncome { get; set; }
     }
 }
