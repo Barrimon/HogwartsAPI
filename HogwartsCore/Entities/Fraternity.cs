@@ -10,7 +10,6 @@ namespace HogwartsCore.Entities
     {
         public string Name { get; set; }
 
-
-        //public virtual ApplicationForIncome FK_ApplicationForIncome { get; set; }
+        public virtual ApplicationForIncome FK_ApplicationForIncome { get; set; }
     }
 }

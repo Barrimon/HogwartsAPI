@@ -11,12 +11,14 @@ namespace HogwartsCore.Services.Model
         public string Name { get; set; }
         [MaxLength(20, ErrorMessage = "{0} allow {1} characters as maximum")]
         public string LastName { get; set; }
-        [Range(1, 999999999,ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        [Range(1, 999999999, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         [RegularExpression("^[0-9]*$", ErrorMessage = "{0} must be numeric")]
         public int Identification { get; set; }
         [Range(1, 99, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         [RegularExpression("^[0-9]*$", ErrorMessage = "{0} must be numeric")]
         public int Age { get; set; }
+
+        public Guid FraternityEntityCode { get; set; }
 
 
 
@@ -24,20 +26,20 @@ namespace HogwartsCore.Services.Model
         {
             EntityCode = entity.EntityCode,
             Age = entity.Age,
-            //EntityCodeFraternity = entity.EntityCodeFraternity,
-            //Fraternity = (FraternityModel)entity.Fk_Fraternity,
+            FraternityEntityCode = entity.FraternityEntityCode,
+            //Fraternity = (FraternityModel)entity.FK_Fraternity,
             Identification = entity.Identification,
             LastName = entity.LastName,
             Name = entity.Name
 
         };
 
-        public static explicit operator ApplicationForIncome (ApplicationForIncomeModel model) => new ApplicationForIncome
+        public static explicit operator ApplicationForIncome(ApplicationForIncomeModel model) => new ApplicationForIncome
         {
             EntityCode = model.EntityCode,
             Age = model.Age,
-            //EntityCodeFraternity = model.EntityCodeFraternity,
-            //Fk_Fraternity = (Fraternity)model.Fraternity,
+            FraternityEntityCode = model.FraternityEntityCode,
+            //FK_Fraternity = (Fraternity)model.Fraternity,
             Identification = model.Identification,
             LastName = model.LastName,
             Name = model.Name
