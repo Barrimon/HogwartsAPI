@@ -3,7 +3,6 @@ using HogwartsCore.Extensions;
 using HogwartsCore.Models;
 using HogwartsCore.Services;
 using HogwartsInfrastructure.Data;
-using HogwartsInfrastructure.Data.Seeder;
 using HogwartsInfrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,8 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Reflection;
 using Newtonsoft.Json;
+using System.Reflection;
 
 namespace HogwartsAPI
 {

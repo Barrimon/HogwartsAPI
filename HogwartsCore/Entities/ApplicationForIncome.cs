@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HogwartsCore.Entities
 {
@@ -16,7 +15,6 @@ namespace HogwartsCore.Entities
         [Range(1, 999999999, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         [RegularExpression("^[0-9]*$", ErrorMessage = "{0} must be numeric")]
         public int Age { get; set; }
-
         public Guid FraternityEntityCode { get; set; }
         public virtual Fraternity FK_Fraternity { get; set; }
 

@@ -1,5 +1,4 @@
 ﻿using HogwartsCore.Entities;
-using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -27,7 +26,6 @@ namespace HogwartsCore.Services.Model
             EntityCode = entity.EntityCode,
             Age = entity.Age,
             FraternityEntityCode = entity.FraternityEntityCode,
-            //Fraternity = (FraternityModel)entity.FK_Fraternity,
             Identification = entity.Identification,
             LastName = entity.LastName,
             Name = entity.Name
@@ -39,7 +37,6 @@ namespace HogwartsCore.Services.Model
             EntityCode = model.EntityCode,
             Age = model.Age,
             FraternityEntityCode = model.FraternityEntityCode,
-            //FK_Fraternity = (Fraternity)model.Fraternity,
             Identification = model.Identification,
             LastName = model.LastName,
             Name = model.Name

@@ -1,10 +1,4 @@
-﻿using HogwartsCore.Services.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-
-namespace HogwartsCore.Entities
+﻿namespace HogwartsCore.Entities
 {
     public class Fraternity : IdentifierEntity
     {

@@ -1,6 +1,4 @@
 ﻿using HogwartsCore.Entities;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace HogwartsCore.Services.Model
 {
